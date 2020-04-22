@@ -30,6 +30,8 @@ class LinkedList:
     # Add node at a particular place
 
     def insert_at(self, prev_node, new_value):
+
+        # initialize the current node
         temp = self.head
 
         # Moves to the previous node
@@ -50,6 +52,8 @@ class LinkedList:
     # Adds node to the end
 
     def append(self, new_value):
+
+        # initialize the new node
         new_value = Node(new_value)
 
         # Checks if list is empty
@@ -68,6 +72,8 @@ class LinkedList:
     # Delete a node
 
     def delete(self, value):
+
+        # initialize the current node
         temp = self.head
 
         # Checks if the node to be deleted is the head itself
@@ -101,10 +107,38 @@ class LinkedList:
         # Frees up the space
         temp = None
 
+    # Delete the whole Linked List
+
+    def deleteList(self):
+
+        # initialize the current node
+        temp = self.head
+
+        # Traverses through the list
+        while temp:
+            # Moves to the next Node
+            next_node = temp.next
+
+            # Asigns the null to the head
+            self.head = next_node
+
+            # Deletes the value in the Node
+            del temp.data
+
+            # Sets temp to the next node
+            temp = next_node
+
     # Prints the list
 
     def print_list(self):
+
+        # initialize the current node
         temp = self.head
+
+        # Checks if the List is Empty
+        if temp == None:
+            print("Empty List")
+
         # Traverses through the list
         while temp:
             print(temp.data, end=" -> ")
@@ -119,7 +153,8 @@ def main():
     lList.push(6)
     lList.push(2)
     lList.insert_at(5, 1)
-    lList.delete(5)
+    # lList.delete(5)
+    lList.deleteList()
     lList.print_list()
 
 
