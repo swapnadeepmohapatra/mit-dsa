@@ -156,6 +156,24 @@ class LinkedList:
     def get_count(self):
         return self.get_node_count(self.head)
 
+    def reverse(self):
+        # initialize prev as none & curr as head
+        prev = None
+        curr = self.head
+        
+        # iterates through the the linked list
+        while(curr is not None):
+            # changes next to next of the current
+            next = curr.next
+            # changes the next of the cureent with the prev node
+            curr.next = prev
+            # changes the prev to current
+            prev = curr
+            # changes the current to next
+            curr = next
+        # updates the head with prev
+        self.head = prev
+
 
 def main():
     lList = LinkedList()
@@ -166,6 +184,8 @@ def main():
     lList.insert_at(5, 1)
     # lList.delete(5)
     # lList.deleteList()
+    lList.print_list()
+    lList.reverse()
     lList.print_list()
     print(lList.get_count())
 
