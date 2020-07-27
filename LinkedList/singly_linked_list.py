@@ -145,6 +145,17 @@ class LinkedList:
             temp = temp.next
         print(None)
 
+    # Gets the count of the node
+
+    def get_node_count(self, node):
+        if (not node):
+            return 0
+        else:
+            return 1 + self.get_node_count(node.next)
+
+    def get_count(self):
+        return self.get_node_count(self.head)
+
 
 def main():
     lList = LinkedList()
@@ -154,8 +165,9 @@ def main():
     lList.push(2)
     lList.insert_at(5, 1)
     # lList.delete(5)
-    lList.deleteList()
+    # lList.deleteList()
     lList.print_list()
+    print(lList.get_count())
 
 
 if __name__ == "__main__":
