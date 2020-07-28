@@ -38,6 +38,44 @@ class LinkedList:
                     print("HEAD")
                     break
 
+    # Deletes the element
+    def delete(self, delete_value):
+        current_node = self.head
+        prev_node = None
+
+        while current_node:
+            # Deletes the Head
+            if current_node.data == delete_value and current_node == self.head:
+                # Head is the only element
+                if current_node.next == self.head:
+                    current_node = None
+                    self.head = None
+                    return
+                # More elements are there
+                else:
+                    # Traverse and deletes
+                    while current_node.next != self.head:
+                        current_node = current_node.next
+                    current_node.next = self.head.next
+                    self.head = self.head.next
+                    current_node = None
+                    return
+                pass
+            # Regular Case
+            elif current_node.data == delete_value:
+                prev_node.next = current_node.next
+                current_node = None
+                return
+            # Node not found
+            else:
+                if current_node.next == self.head:
+                    print("Node not found")
+                    return
+
+            # updates the previous node and the current node
+            prev_node = current_node
+            current_node = current_node.next
+
 
 cll = LinkedList()
 
@@ -45,4 +83,5 @@ cll.push(4)
 cll.push(3)
 cll.push(2)
 cll.push(1)
+cll.delete(4)
 cll.print()
