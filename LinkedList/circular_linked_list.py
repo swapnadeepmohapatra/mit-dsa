@@ -44,7 +44,6 @@ class LinkedList:
         new_node.next = self.head
 
     # Prints the linked list
-
     def print(self):
         temp = self.head
         if temp is None:
@@ -95,6 +94,15 @@ class LinkedList:
             prev_node = current_node
             current_node = current_node.next
 
+    # Counts the number of nodes
+    def count(self):
+        current = self.head
+        counter = 1
+        while(current.next != self.head):
+            counter += 1
+            current = current.next
+        print("Count is: ", str(counter))
+
 
 cll = LinkedList()
 
@@ -104,4 +112,5 @@ cll.push(2)
 cll.push(1)
 cll.delete(4)
 cll.append(4)
+cll.count()
 cll.print()
