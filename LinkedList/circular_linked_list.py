@@ -25,7 +25,26 @@ class LinkedList:
 
         self.head = new_node
 
+    # Adds node to the last
+    def append(self, data):
+        new_node = Node(data)
+        temp = self.head
+
+        if self.head is None:
+            new_node.next = new_node
+            self.head = new_node
+            return
+
+        while True:
+            if temp.next == self.head:
+                break
+            temp = temp.next
+
+        temp.next = new_node
+        new_node.next = self.head
+
     # Prints the linked list
+
     def print(self):
         temp = self.head
         if temp is None:
@@ -84,4 +103,5 @@ cll.push(3)
 cll.push(2)
 cll.push(1)
 cll.delete(4)
+cll.append(4)
 cll.print()
