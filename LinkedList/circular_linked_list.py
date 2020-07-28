@@ -25,10 +25,24 @@ class LinkedList:
 
         self.head = new_node
 
+    # Prints the linked list
+    def print(self):
+        temp = self.head
+        if temp is None:
+            print("Linked List is empty")
+        else:
+            while True:
+                print(temp.data, end=" -> ")
+                temp = temp.next
+                if temp == self.head:
+                    print("HEAD")
+                    break
+
 
 cll = LinkedList()
 
 cll.push(4)
-cll.push(5)
-
-print(cll.head.data)
+cll.push(3)
+cll.push(2)
+cll.push(1)
+cll.print()
