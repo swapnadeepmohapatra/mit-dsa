@@ -103,6 +103,16 @@ class LinkedList:
             current = current.next
         print("Count is: ", str(counter))
 
+    # Converts a linked list to a circular linked list
+    def convertLinkedListToCircular(self, head):
+        current = head
+
+        while current.next is not None:
+            current = current.next
+
+        current.next = head
+        return head
+
 
 cll = LinkedList()
 
